@@ -21,15 +21,13 @@ public class Controller : ControllerBase
     [HttpGet("MoskowWeather")]
     public async Task<ActionResult<string>> GetMoscowWeather([FromQuery] string date)
     {
-        string temperature = GetWeatherDataAndParse(date).Result + "°C";
-
-        return temperature;
+        return await GetWeatherDataAndParse(date) + "°C";
     }
 
     [HttpGet("SaveMoskowWeather")]
     public async Task<ActionResult<MoscowWeatherByDate>> AddMoscowWeather([FromQuery] string date)
     {
-        MoscowWeatherByDate weather = new MoscowWeatherByDate(date, GetWeatherDataAndParse(date).Result);
+        MoscowWeatherByDate weather = new MoscowWeatherByDate(date, await GetWeatherDataAndParse(date));
         await _context.MoscowWeatherByDate.AddAsync(weather);
         await _context.SaveChangesAsync();
         return weather;

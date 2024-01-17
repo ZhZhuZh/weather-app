@@ -21,12 +21,12 @@ namespace FirstApp.Cmd
 
             var authorizationHeader = Request.Headers["Authorization"].ToString();
 
-            if (!authorizationHeader.StartsWith("Basic ", StringComparison.OrdinalIgnoreCase))
+            if (!authorizationHeader.StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
             {
                 return AuthenticateResult.Fail("Ключ авторизации начинается не с 'Basic '");
             }
 
-            var token = authorizationHeader.Substring(6);
+            var token = authorizationHeader.Substring("Basic ".Length);
             var credentialAsString = Encoding.UTF8.GetString(Convert.FromBase64String(token));
 
             var credentials = credentialAsString.Split(":");
