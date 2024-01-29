@@ -150,12 +150,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Получить температуру в Москве с единицами измерения из ответа json сервера")]
-        public virtual void ПолучитьТемпературуВМосквеСЕдиницамиИзмеренияИзОтветаJsonСервера()
+        [NUnit.Framework.DescriptionAttribute("Получить температуру из ответа json сервера негативный сценарий")]
+        public virtual void ПолучитьТемпературуИзОтветаJsonСервераНегативныйСценарий()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Получить температуру в Москве с единицами измерения из ответа json сервера", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Получить температуру из ответа json сервера негативный сценарий", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -177,13 +177,92 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 13
- testRunner.Given(@"json ответ сервера {""latitude"":55.782074,""longitude"":37.576374,""generationtime_ms"":0.04398822784423828,""utc_offset_seconds"":10800,""timezone"":""Europe/Moscow"",""timezone_abbreviation"":""MSK"",""elevation"":141.0,""hourly_units"":{""time"":""iso8601"",""temperature_2m"":""°C""},""hourly"":{""time"":[""2021-10-10T00:00"",""2021-10-10T01:00"",""2021-10-10T02:00"",""2021-10-10T03:00"",""2021-10-10T04:00"",""2021-10-10T05:00"",""2021-10-10T06:00"",""2021-10-10T07:00"",""2021-10-10T08:00"",""2021-10-10T09:00"",""2021-10-10T10:00"",""2021-10-10T11:00"",""2021-10-10T12:00"",""2021-10-10T13:00"",""2021-10-10T14:00"",""2021-10-10T15:00"",""2021-10-10T16:00"",""2021-10-10T17:00"",""2021-10-10T18:00"",""2021-10-10T19:00"",""2021-10-10T20:00"",""2021-10-10T21:00"",""2021-10-10T22:00"",""2021-10-10T23:00""],""temperature_2m"":[1.1,0.7,0.5,0.7,0.2,0.5,0.9,1.3,2.4,4.2,6.1,8.2,9.7,10.9,11.6,13.2,12.6,9.5,6.6,5.6,4.5,3.6,2.9,2.2]}}", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+ testRunner.Given(@"json ответ сервера {""latitude"":55.782074,""longitude"":37.576374,""generationtime_ms"":0.04398822784423828,""utc_offset_seconds"":10800,""timezone"":""Europe/Moscow"",""timezone_abbreviation"":""MSK"",""elevation"":141.0,""hourly_units"":{""time"":""iso8601"",""temperature_2m"":""°C""},""hourly"":{""time"":[""2021-10-10T00:00"",""2021-10-10T01:00"",""2021-10-10T02:00"",""2021-10-10T03:00"",""2021-10-10T04:00"",""2021-10-10T05:00"",""2021-10-10T06:00"",""2021-10-10T07:00"",""2021-10-10T08:00"",""2021-10-10T09:00"",""2021-10-10T10:00"",""2021-10-10T11:00"",""2021-10-10T12:00"",""2021-10-10T13:00"",""2021-10-10T14:00"",""2021-10-10T15:00"",""2021-10-10T16:00"",""2021-10-10T17:00"",""2021-10-10T18:00"",""2021-10-10T19:00"",""2021-10-10T20:00"",""2021-10-10T21:00"",""2021-10-10T22:00"",""2021-10-10T23:00""],""temperature_2m"":[]}}", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 14
+ testRunner.Then("при вызове команды ParseRawContent получаю ошибку", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "То ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Получить температуру в Москве с единицами измерения из ответа json сервера")]
+        public virtual void ПолучитьТемпературуВМосквеСЕдиницамиИзмеренияИзОтветаJsonСервера()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Получить температуру в Москве с единицами измерения из ответа json сервера", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 16
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 17
+ testRunner.Given(@"json ответ сервера {""latitude"":55.782074,""longitude"":37.576374,""generationtime_ms"":0.04398822784423828,""utc_offset_seconds"":10800,""timezone"":""Europe/Moscow"",""timezone_abbreviation"":""MSK"",""elevation"":141.0,""hourly_units"":{""time"":""iso8601"",""temperature_2m"":""°C""},""hourly"":{""time"":[""2021-10-10T00:00"",""2021-10-10T01:00"",""2021-10-10T02:00"",""2021-10-10T03:00"",""2021-10-10T04:00"",""2021-10-10T05:00"",""2021-10-10T06:00"",""2021-10-10T07:00"",""2021-10-10T08:00"",""2021-10-10T09:00"",""2021-10-10T10:00"",""2021-10-10T11:00"",""2021-10-10T12:00"",""2021-10-10T13:00"",""2021-10-10T14:00"",""2021-10-10T15:00"",""2021-10-10T16:00"",""2021-10-10T17:00"",""2021-10-10T18:00"",""2021-10-10T19:00"",""2021-10-10T20:00"",""2021-10-10T21:00"",""2021-10-10T22:00"",""2021-10-10T23:00""],""temperature_2m"":[1.1,0.7,0.5,0.7,0.2,0.5,0.9,1.3,2.4,4.2,6.1,8.2,9.7,10.9,11.6,13.2,12.6,9.5,6.6,5.6,4.5,3.6,2.9,2.2]}}", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 18
  testRunner.Given("дата 2020-10-10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
-#line 15
+#line 19
  testRunner.Then("при вызове команды ParseContentAsMoscowWeather получаю температуру 1,1°C", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "То ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Получить температуру в Москве с единицами измерения из ответа json сервера негати" +
+            "вный сценарий")]
+        public virtual void ПолучитьТемпературуВМосквеСЕдиницамиИзмеренияИзОтветаJsonСервераНегативныйСценарий()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Получить температуру в Москве с единицами измерения из ответа json сервера негати" +
+                    "вный сценарий", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 22
+ testRunner.Given("json ответ сервера {{[5,6.6,5.6,4.5,3.6,2.9,2.2]}}", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 23
+ testRunner.Given("дата 2020--10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 24
+ testRunner.Then("при вызове команды ParseContentAsMoscowWeather получаю ошибку", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "То ");
 #line hidden
             }
             this.ScenarioCleanup();

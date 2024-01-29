@@ -1,5 +1,7 @@
 using FirstApp.Cmd;
+using Newtonsoft.Json;
 using NUnit.Framework;
+using SpecFlow.Internal.Json;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowWeather.Specs.StepDefinitions
@@ -30,6 +32,13 @@ namespace SpecFlowWeather.Specs.StepDefinitions
             Assert.AreEqual(expected, _result, "Проверка парсинга json в температуру провалена");
         }
 
+        [Then("при вызове команды ParseRawContent получаю ошибку")]
+        public void ThenПриВызовеКомандыParseRawContentПолучаюОшибку()
+        {
+            string? _jsonFromServer = _scenarioContext["jsonFromServer"].ToString();
+            Assert.Throws<ArgumentOutOfRangeException>(() => WeatherParseHelper.ParseRawContent(_jsonFromServer));
+        }
+
         [Then("при вызове команды ParseContentAsMoscowWeather получаю температуру (.*)")]
         public void ThenПриВызовеКомандыParseContentAsMoscowWeatherПолучаюТемпературу(string expected)
         {
@@ -38,6 +47,15 @@ namespace SpecFlowWeather.Specs.StepDefinitions
             WeatherParser parser = new(_date);
             string _result = parser.ParseContentAsMoscowWeather(_jsonFromServer);
             Assert.AreEqual(expected, _result, "Проверка парсинга json в температуру в Москве провалена");
+        }
+
+        [Then("при вызове команды ParseContentAsMoscowWeather получаю ошибку")]
+        public void ThenПриВызовеКомандыParseContentAsMoscowWeatherПолучаюОшибку()
+        {
+            string? _date = _scenarioContext["date"].ToString();
+            string? _jsonFromServer = _scenarioContext["jsonFromServer"].ToString();
+            WeatherParser parser = new(_date);
+            Assert.Throws<JsonReaderException>(() => parser.ParseContentAsMoscowWeather(_jsonFromServer));
         }
 
     }

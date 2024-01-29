@@ -10,7 +10,7 @@ namespace FirstApp.Cmd
             JObject joResponse = JObject.Parse(content);
             JObject? ojObject = (JObject?)joResponse["hourly"];
             JArray? array = (JArray?)ojObject?["temperature_2m"];
-            string temperature = (array?[0].ToString() ?? "0");
+            string temperature = array?[0].ToString() ?? "0";
 
             return temperature;
         }
